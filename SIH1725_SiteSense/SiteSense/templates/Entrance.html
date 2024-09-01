@@ -155,14 +155,14 @@
                     
                     <div class="site_container"> 
                         <div class="navbar-header"> 
-                            <a href="#page-top" class="s123-site-logo navbar-brand s123-w-l-s page-scroll"><img alt="Site Sense" class="img-responsive" style="width: 120px; height: 250px;" src="static/logo.png"><span class="website-name website-name-preview-helper ">Site Sense</span></a> 
+                            <a href="#page-top" class="s123-site-logo navbar-brand s123-w-l-s page-scroll"><img alt="Site Sense" class="img-responsive" style="width: 120px; height: 250px;" src="{% static 'logo.png' %}"><span class="website-name website-name-preview-helper ">Site Sense</span></a> 
                         </div> 
                         
                         <div id="top-menu"> <ul class="navPages nav navbar-nav">
                             
                             <div style="display: flex; gap: 10px;">
-                                <a href="Register.html" class="btn btn-primary">Signup</a>
-                                <a href="login.html" class="btn btn-primary">Sign In</a>
+                                <a href="{% url 'register' %}" class="btn btn-primary">Signup</a>
+                                <a href="{% url 'login' %}" class="btn btn-primary">Sign In</a>
                             </div>
                         </div>
 

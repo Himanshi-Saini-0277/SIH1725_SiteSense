@@ -86,6 +86,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
         <html lang="en">
 
         <head>
+            {% load static %}
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="css/style.css">
@@ -101,7 +102,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
                     justify-content: space-between;
                     align-items: center;
                     overflow: hidden;
-                    background: url(progress-bg.jpg);
+                    background: url("{% static 'progress-bg.jpg' %}");
                     backdrop-filter: blur(2px);
                     width: 100%;
                     background-size: cover;
@@ -178,7 +179,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
         <body>
             <header>
                 <div class="logo">
-                    <img src="logo.png" alt="Site Logo">
+                    <img src="{% static 'logo.png' %}" alt="Site Logo">
                 </div>
                 <div class="nav-links">Progress Tracker</div>
                 <div class="space"></div>
@@ -195,15 +196,15 @@ def generate_comparison_report(previous_image_path, current_image_path):
                             </tr>
                             <tr>
                                 <td><strong style="margin-top: 250px;">Previous Image:</strong></td>
-                                <td><img src="Images/previous_site_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px; margin-top: 50px;"></td>
+                                <td><img src="{% static 'Images/previous_site_image.jpeg' %}" style="width: 200px; height: 200px; margin-left: 200px; margin-top: 50px;"></td>
                             </tr>
                             <tr>
                                 <td><strong>Current Image:</strong></td>
-                                <td><img src="Images/current_site_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px;"></td>
+                                <td><img src="{% static 'Images/current_site_image.jpeg' %}" style="width: 200px; height: 200px; margin-left: 200px;"></td>
                             </tr>
                             <tr>
                                 <td><strong>Differences Image:</strong></td>
-                                <td><img src="Images/difference_image.jpeg" style="width: 200px; height: 200px; margin-left: 200px;"></td>
+                                <td><img src="{% static 'Images/difference_image.jpeg' %}" style="width: 200px; height: 200px; margin-left: 200px;"></td>
                             </tr>
                         </table>
                     </div>
