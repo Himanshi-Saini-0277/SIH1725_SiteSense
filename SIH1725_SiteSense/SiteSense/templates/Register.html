@@ -192,7 +192,7 @@
     </div>
     <div class="container">
       <div class="title">Registration</div>
-      <form action="#">
+      <form action="{% url 'login' %}">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Full Name</span>
@@ -223,7 +223,7 @@
           <input type="submit" value="Register">
         </div>
         <div class="login">
-            <p>Already have an account? <a href="login.html">Login</a></p>
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
         </div>
       </form>
     </div>
