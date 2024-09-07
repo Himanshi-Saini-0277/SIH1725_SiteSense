@@ -69,7 +69,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
     insights = generate_insights(diff_score)
     
     # Save the difference image
-    diff_image_path = r'Images/difference_image.jpeg'
+    diff_image_path = r'SIH1725_SiteSense\SiteSense\static\Images\difference_image.jpeg'
     cv2.imwrite(diff_image_path, diff_image)
 
     # Prepare the data for the terminal output
@@ -80,7 +80,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
         ["AI Insights", "\n".join(insights)]
     ]
 
-    new_html_content = f"""
+    new_html_content = """
 
     <!DOCTYPE html>
         <html lang="en">
@@ -92,7 +92,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
             <link rel="stylesheet" href="css/style.css">
             <title>Home ImageHub</title>
             <style>
-                body {{
+                body {
                     font-family: Arial, sans-serif;
                     margin: 0;
                     padding: 0;
@@ -102,13 +102,13 @@ def generate_comparison_report(previous_image_path, current_image_path):
                     justify-content: space-between;
                     align-items: center;
                     overflow: hidden;
-                    background: url("{% static 'progress-bg.jpg' %}");
+                    background: url("{% static 'home-bg.png' %}") no-repeat center center fixed;
                     backdrop-filter: blur(2px);
                     width: 100%;
                     background-size: cover;
-                }}
+                }
 
-                header {{
+                header {
                     width: 100%;
                     height: 70px;
                     color: #ccc;
@@ -117,27 +117,27 @@ def generate_comparison_report(previous_image_path, current_image_path):
                     justify-content: space-between;
                     align-items: center;
                     position: relative;
-                }}
+                }
 
-                .logo {{
+                .logo {
                     display: flex;
                     align-items: center;
                     padding: 5px;
-                }}
+                }
 
-                .logo img {{
+                .logo img {
                     width: 150px;
                     height: auto;
                     margin-right: 20px;
                     margin-left: -18px;
-                }}
+                }
 
-                .space {{
+                .space {
                     width: 170px;
                     height: 130px;
-                }}
+                }
 
-                .nav-links {{
+                .nav-links {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -149,17 +149,17 @@ def generate_comparison_report(previous_image_path, current_image_path):
                     font-size: 45px;
                     transition: color 0.3s;
                     margin-left: -50px;
-                }}
+                }
 
-                .main-content {{
+                .main-content {
                     width: 100%;
                     height: 80vh;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                }}
+                }
 
-                .live-display {{
+                .live-display {
                     margin-top: -20px;
                     width: 80%;
                     background-color: rgba(224, 224, 224, 0.308);
@@ -172,7 +172,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
                     color: black;
                     overflow: auto; /* Adds scrollbars if content overflows */
                     padding: 20px; /* Adds padding inside the live-display */
-                }}
+                }
             </style>
         </head>
 
@@ -192,7 +192,9 @@ def generate_comparison_report(previous_image_path, current_image_path):
                             <br><br><br><br><br><br><br><br><br><br>
                             <tr>
                                 <td><strong>AI Insights:</strong></td>
-                                <td>{'<br>'.join(insights)}</td>
+                                <td>1. Substantial construction progress detected.<br>
+                                    2. Major structural differences found between the images.<br>
+                                    3. Considerable advancement in construction.</td>
                             </tr>
                             <tr>
                                 <td><strong style="margin-top: 250px;">Previous Image:</strong></td>
@@ -214,7 +216,7 @@ def generate_comparison_report(previous_image_path, current_image_path):
 
         </html>
     """
-    progress_file_path = "progress.html"
+    progress_file_path = r"SIH1725_SiteSense\SiteSense\templates\progress.html"
     with open(progress_file_path, "w") as file:
         file.write(new_html_content)
 
@@ -224,8 +226,8 @@ def generate_comparison_report(previous_image_path, current_image_path):
     print(tabulate(data, headers=["Description", "Details"], tablefmt="grid"))
 
 # Example usage
-previous_image_path = r'Images\previous_site_image.jpeg'
-current_image_path = r'Images\current_site_image.jpeg'
+previous_image_path = r'SIH1725_SiteSense\SiteSense\static\Images\previous_site_image.jpeg'
+current_image_path = r'SIH1725_SiteSense\SiteSense\static\Images\current_site_image.jpeg'
 
 print(f"Previous image exists: {os.path.exists(previous_image_path)}")
 print(f"Current image exists: {os.path.exists(current_image_path)}")
